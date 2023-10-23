@@ -8,8 +8,6 @@ Crear entorno virtual
 Activar el entorno virtual  
 ```source venv/bin/activate```
 
-<div style="border: 1px solid aquamarine; border-radius: 5px; padding: 2mm">
-
 ### App Initialization
 Instalar las dependencias  
 ```pip install -r requirements.txt```
@@ -40,15 +38,16 @@ swagger_ui.static  GET      /openapi/docs/dist/<path:filename>
 flask cli # comandos basicos con la BBDD
 flask database-schema # comandos relacionados con los schemas de la BBDD.
 ```
-
-<div style="border: 1px solid crimson; border-radius: 5px; padding: 2mm">
-
+__
 ```
 flask cli init_db # Inicializa la base de datos
 ```
-Por defecto crea ``app/app.db``, un fichero SQLite util para desarrollo. 
-</div>
-</div>
+Por defecto crea ``app/app.db``, un fichero SQLite util para desarrollo.
+
+__
+```
+flask cli seed_db # Crea usuario: "admin" con password "1234"
+```
 
 Correr el servidor de desarrollo especificando la configuración  
 ```flask.exe -e settings.env run --debug```  
