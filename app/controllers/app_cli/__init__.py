@@ -20,9 +20,8 @@ def drop_db():
 
 @app_cli_bp.cli.command('seed_db')
 def seed_db():
-    admin = models.User()
-    admin.username = 'Admin'
-    admin.email = 'admin@email.com'
+    admin = models.User(username='admin', email='admin@mail.com')
+    admin.set_password('1234')
     database.db_session.add(admin)
     ns = models.NameSpace()
     ns.name = 'Root NS'
