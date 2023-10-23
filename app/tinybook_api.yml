@@ -9,8 +9,7 @@ info:
 servers:
   - url: 'http://nanoserver.local:5000/api'
   - url: 'http://127.0.0.1:5000/api'
-components:
-  requestBodies:
+
 
 
 paths:
