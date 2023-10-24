@@ -16,6 +16,7 @@ from flask import current_app
 
 slug_pattern = r"^[a-zA-Z0-9][a-zA-Z0-9-_]*[a-zA-Z0-9]$"
 
+
 class CustomBase(Base):
     __abstract__ = True
     id = sa.Column('id', Integer(), primary_key=True)

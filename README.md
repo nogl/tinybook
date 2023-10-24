@@ -16,17 +16,17 @@ Uso de la cli de Flask (al llamarse la carpeta `app` y la aplicación se initial
 
 Mapeo app.endpoint | method | rule
 ```
-$ [tuki]@[/c/repos/tinybook]$>  flask routes
+$ [xxxx]@[/c/repos/tinybook]$>  flask routes
 Endpoint           Methods  Rule                              
 -----------------  -------  ----------------------------------
-auth.login         GET      /auth/login
-auth.me            GET      /auth/me
-auth.register      GET      /auth/register
-auth_api.login     POST     /api/v1/auth/login
-auth_api.register  POST     /api/v1/auth/register
-get_cfg            GET      /cfg
-index              GET      /index
-index              GET      /
+auth.login         GET      /auth/login                       
+auth.register      GET      /auth/register                    
+auth_api.login     POST     /api/v1/auth/login                
+auth_api.me        GET      /api/v1/auth/me                   
+auth_api.register  POST     /api/v1/auth/register             
+get_cfg            GET      /cfg                              
+index              GET      /index                            
+index              GET      /                                 
 openapi            GET      /openapi
 static             GET      /static/<path:filename>
 swagger_ui.show    GET      /openapi/docs/<path:path>
@@ -48,8 +48,9 @@ __
 ```
 flask cli seed_db # Crea usuario: "admin" con password "1234"
 ```
-
+__  
 Correr el servidor de desarrollo especificando la configuración  
-```flask.exe -e settings.env run --debug```  
+```flask -e settings.env run --debug --reload```  
 
-
+Una vez iniciado, podemos ir a para disfrutar de nuestro swagger. 
+http://127.0.0.1:5000/openapi/docs/

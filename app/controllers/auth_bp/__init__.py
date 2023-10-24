@@ -18,8 +18,4 @@ def register():
     return 'register page'
 
 
-@auth_bp.route('/me')
-@jwt_required()
-def me():
-    current_app.logger.info(f'me:{current_user.email}')
-    return f'me page {current_user.email}\n'
+

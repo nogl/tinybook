@@ -1,9 +1,12 @@
+import json
+
 from flask import Blueprint, current_app, request, jsonify
 
-from flask_jwt_extended import create_access_token
+from flask_jwt_extended import create_access_token, jwt_required, current_user
 
 from app import database, models
 
+current_user: models.User
 
 auth_api_bp = Blueprint('auth_api', __name__, url_prefix="/api/v1/auth")
 
@@ -27,3 +30,14 @@ def login():
 @auth_api_bp.route('/register', methods=["POST"])
 def register():
     return 'register POST'
+
+
+@auth_api_bp.route('/me')
+@jwt_required()
+def me():
+    current_app.logger.info(f'me:{current_user.email}')
+    return jsonify(loggin_as=dict(
+        email=current_user.email,
+        username=current_user.username,
+        bio=current_user.bio
+    ))

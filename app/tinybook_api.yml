@@ -7,10 +7,16 @@ info:
     email: 'cristian.sacristan@protonmail.com'
     name: 'Cristian Sacristan'
 servers:
-  - url: 'http://nanoserver.local:5000/api'
   - url: 'http://127.0.0.1:5000/api'
 
-
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - bearerAuth: []
 
 paths:
 
@@ -24,14 +30,16 @@ paths:
             schema:
               example:
                 {
-                  'username': 'xxx',
-                  'password': 'xxx'
+                  'username': 'admin',
+                  'password': '1234'
                 }
       responses:
         201:
           description: created
-  /me:
+  /v1/auth/me:
     get:
+      security:
+        - bearerAuth: [ ]
       responses:
         200:
           description: OK
